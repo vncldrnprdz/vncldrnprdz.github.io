@@ -69,7 +69,7 @@
 
         <div class="row gy-5">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4 order-lg-1 order-2" data-aos="fade-up" data-aos-delay="200"> 
 
             <div class="service-box">
               <h4>Serices List</h4>
@@ -102,7 +102,7 @@
 
           </div>
 
-          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200" style="margin-top: -12px;">
+          <div class="col-lg-8 ps-lg-5 order-lg-2 order-1" data-aos="fade-up" data-aos-delay="100" style="margin-top: -12px;">
 
             <!-- Programming & Web Development Section -->
             <section id="programming" class="service-section">
@@ -296,51 +296,43 @@
   </footer>
 
   <!-- Service Details Script -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const serviceLinks = document.querySelectorAll(".services-list a");
-  const sections = document.querySelectorAll(".service-section");
-  const serviceTitle = document.getElementById("service-title");
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const serviceLinks = document.querySelectorAll(".services-list a");
+    const sections = document.querySelectorAll(".service-section");
+    const serviceTitle = document.getElementById("service-title");
 
-  // Function to activate a section by ID
-  function activateSection(id) {
-    sections.forEach(section => {
-      section.style.display = section.id === id ? "block" : "none";
-    });
+    // Function to activate a section by ID
+    function activateSection(id) {
+      sections.forEach(section => {
+        section.style.display = section.id === id ? "block" : "none";
+      });
 
+      serviceLinks.forEach(link => {
+        if (link.getAttribute("href") === "#" + id) {
+          link.classList.add("active");
+          serviceTitle.textContent = link.textContent; // update title
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+
+    // Handle clicks
     serviceLinks.forEach(link => {
-      if (link.getAttribute("href") === "#" + id) {
-        link.classList.add("active");
-        serviceTitle.textContent = link.textContent; // update title
-      } else {
-        link.classList.remove("active");
-      }
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const id = this.getAttribute("href").substring(1);
+        history.pushState(null, "", "#" + id); // update URL hash
+        activateSection(id);
+      });
     });
-  }
 
-  // Handle clicks
-  serviceLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const id = this.getAttribute("href").substring(1);
-      history.pushState(null, "", "#" + id); // update URL hash
-      activateSection(id);
-
-      // 👇 Scroll into view (fix for mobile)
-      const target = document.getElementById(id);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.scrollBy(0, -80); // adjust offset for your sticky header height
-      }
-    });
+    // Check URL hash on load
+    const initialId = window.location.hash.substring(1) || "programming"; 
+    activateSection(initialId);
   });
-
-  // Check URL hash on load
-  const initialId = window.location.hash.substring(1) || "programming"; 
-  activateSection(initialId);
-});
-</script>
-
+  </script>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
