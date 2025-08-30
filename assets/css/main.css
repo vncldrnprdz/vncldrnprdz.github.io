@@ -660,6 +660,11 @@ section,
   font-size: 16px;
 }
 
+.add-sign::after {
+  content: "+";
+  margin-left: 2px;
+}
+
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
@@ -974,6 +979,18 @@ section,
   fill: #6610f2;
 }
 
+.services .service-item.item-purple i {
+  color: #A100FF;
+}
+
+.services .service-item.item-purple:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-purple:hover .icon path {
+  fill: #A100FF;
+}
+
 .services .service-item.item-pink i {
   color: #f3268c;
 }
@@ -984,6 +1001,18 @@ section,
 
 .services .service-item.item-pink:hover .icon path {
   fill: #f3268c;
+}
+
+.services .service-item.item-amber i {
+  color: #FFC107;
+}
+
+.services .service-item.item-amber:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-amber:hover .icon path {
+  fill: #FFC107;
 }
 
 /*--------------------------------------------------------------
