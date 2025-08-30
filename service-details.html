@@ -330,8 +330,14 @@
         setTimeout(() => {
           const target = document.getElementById(id);
           if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-            window.scrollBy(0, -80); // adjust this (-80) for your header height
+            const headerOffset = 100; // adjust to your header height
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
           }
         }, 50); // small delay so section is visible before scroll
       });
