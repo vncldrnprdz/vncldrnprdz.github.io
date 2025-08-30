@@ -325,6 +325,15 @@
         const id = this.getAttribute("href").substring(1);
         history.pushState(null, "", "#" + id); // update URL hash
         activateSection(id);
+
+        // 👇 Scroll into view AFTER section is shown
+        setTimeout(() => {
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            window.scrollBy(0, -80); // adjust this (-80) for your header height
+          }
+        }, 50); // small delay so section is visible before scroll
       });
     });
 
