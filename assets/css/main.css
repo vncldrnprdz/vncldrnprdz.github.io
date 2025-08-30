@@ -176,22 +176,14 @@ h6 {
 }
 
 #hero {
-  position: relative;
-  overflow: hidden;
-}
-
-#hero .hero-bg {
-  position: absolute;
-  inset: 0; /* fills the section */
   background: url("assets/img/hero-bg.jpg") no-repeat center center;
   background-size: cover;
-  z-index: -1;
 }
 
-/* On mobile, shift the image more to the right */
+/* Mobile fix: shift bg to the right */
 @media (max-width: 768px) {
-  #hero .hero-bg {
-    background-position: right center;
+  #hero {
+    background-position: right center; /* show the right side of your pic */
   }
 }
 
