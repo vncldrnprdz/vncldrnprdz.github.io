@@ -175,15 +175,13 @@ h6 {
   }
 }
 
-#hero {
-  background: url("assets/img/hero-bg.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-/* Mobile fix: shift bg to the right */
+/* Mobile fix: show right side */
 @media (max-width: 768px) {
-  #hero {
-    background-position: right center; /* show the right side of your pic */
+  #hero img {
+    object-position: right center; /* shift image */
+    object-fit: cover; /* keep it covering */
+    width: 100%;
+    height: 100vh; /* make sure it fills */
   }
 }
 
