@@ -296,43 +296,51 @@
   </footer>
 
   <!-- Service Details Script -->
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const serviceLinks = document.querySelectorAll(".services-list a");
-    const sections = document.querySelectorAll(".service-section");
-    const serviceTitle = document.getElementById("service-title");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const serviceLinks = document.querySelectorAll(".services-list a");
+  const sections = document.querySelectorAll(".service-section");
+  const serviceTitle = document.getElementById("service-title");
 
-    // Function to activate a section by ID
-    function activateSection(id) {
-      sections.forEach(section => {
-        section.style.display = section.id === id ? "block" : "none";
-      });
-
-      serviceLinks.forEach(link => {
-        if (link.getAttribute("href") === "#" + id) {
-          link.classList.add("active");
-          serviceTitle.textContent = link.textContent; // update title
-        } else {
-          link.classList.remove("active");
-        }
-      });
-    }
-
-    // Handle clicks
-    serviceLinks.forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const id = this.getAttribute("href").substring(1);
-        history.pushState(null, "", "#" + id); // update URL hash
-        activateSection(id);
-      });
+  // Function to activate a section by ID
+  function activateSection(id) {
+    sections.forEach(section => {
+      section.style.display = section.id === id ? "block" : "none";
     });
 
-    // Check URL hash on load
-    const initialId = window.location.hash.substring(1) || "programming"; 
-    activateSection(initialId);
+    serviceLinks.forEach(link => {
+      if (link.getAttribute("href") === "#" + id) {
+        link.classList.add("active");
+        serviceTitle.textContent = link.textContent; // update title
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  // Handle clicks
+  serviceLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const id = this.getAttribute("href").substring(1);
+      history.pushState(null, "", "#" + id); // update URL hash
+      activateSection(id);
+
+      // 👇 Scroll into view (fix for mobile)
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.scrollBy(0, -80); // adjust offset for your sticky header height
+      }
+    });
   });
-  </script>
+
+  // Check URL hash on load
+  const initialId = window.location.hash.substring(1) || "programming"; 
+  activateSection(initialId);
+});
+</script>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
