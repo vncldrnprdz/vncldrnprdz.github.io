@@ -167,24 +167,35 @@
 
   });
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+/**
+ * Init swiper sliders with reusable JSON config
+ */
+function initSwiper() {
+  const baseConfig = JSON.parse(document.getElementById("swiper-config").textContent);
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
+  document.querySelectorAll(".init-swiper").forEach(slider => {
+    let config = { ...baseConfig };
 
-  window.addEventListener("load", initSwiper);
+    // Assign navigation if elements exist
+    const next = slider.querySelector(".swiper-button-next");
+    const prev = slider.querySelector(".swiper-button-prev");
+    if (next && prev) {
+      config.navigation = { nextEl: next, prevEl: prev };
+    }
+
+    // Assign pagination if element exists
+    const pagination = slider.querySelector(".swiper-pagination");
+    if (pagination) {
+      config.pagination = { el: pagination, type: "bullets", clickable: true };
+    }
+
+    // Initialize Swiper
+    new Swiper(slider, config);
+  });
+}
+
+window.addEventListener("load", initSwiper);
+
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
