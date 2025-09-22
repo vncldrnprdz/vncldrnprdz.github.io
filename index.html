@@ -79,7 +79,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
-        <p>I am a motivated Computer Technology graduate who thrives at the intersection of technology and creativity.
+        <p>A motivated professional who thrives at the intersection of technology and creativity.
           My journey has been shaped by a balance of hands-on technical training, leadership experiences, and a constant
           drive to learn and adapt in a rapidly evolving digital world.</p>
       </div><!-- End Section Title -->
@@ -99,24 +99,48 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>20 July 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>vncldrnprdz.github.io</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63 977 749 5601</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>Tayabas City, Quezon Province</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Nickname:</strong> <span>Pards</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthdate:</strong> <span id="birthdate">July 20, 2002</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="age"></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Nationality:</strong> <span>Filipino</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Languages:</strong> <span>English and Filipino</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>23</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>vncldrnprdz@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span id="email-data">vncldrnprdz@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span id="phone-data">+63 977 749 5601</span></li> <!--go to portfolio details if changed-->
+                  <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span id="location-data">Tayabas City, Quezon Province</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
               </div>
+
+              <script>
+                // Get the text inside the birthday <span>
+                const birthdayText = document.getElementById("birthdate").textContent.trim();
+                const birthDate = new Date(birthdayText); // Convert to Date object
+
+                function calculateAge(birthday) {
+                  const today = new Date();
+                  let age = today.getFullYear() - birthday.getFullYear();
+                  const m = today.getMonth() - birthday.getMonth();
+                  if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+                    age--;
+                  }
+                  return age;
+                }
+
+                if (!isNaN(birthDate)) {
+                  document.getElementById("age").textContent = calculateAge(birthDate) + " years old";
+                } else {
+                  console.error("Could not parse birthday:", birthdayText);
+                }
+              </script>
+
             </div>
             <p class="py-3">
-              Beyond technical skills, I value teamwork, clear communication, and adaptability. I see every project as an opportunity
-              to grow, experiment, and create solutions that don’t just work, but work well for the people who use them.
+              <strong>“RIDE or DIE”</strong> — I’m committed to every project from start to finish, ensuring quality, reliability, and dedication no matter the challenge.
             </p>
           </div>
         </div>
@@ -143,7 +167,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-award"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="21" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="22" data-purecounter-duration="1" class="purecounter"></span>
               <p>Awards/Recognitions</p>
             </div>
           </div><!-- End Stats Item -->
@@ -159,7 +183,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-patch-check"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
               <p>Certifications Earned</p>
             </div>
           </div><!-- End Stats Item -->
@@ -341,41 +365,83 @@
             <h3 class="resume-title">Summary</h3>
             <div class="resume-item pb-0">
               <h4>Vince Aldrin Pardito</h4>
-              <p><em>Detail-oriented and tech-savvy Computer Technology graduate with 1,000+ hours of hands-on 
-                IT support, programming, web development, CAD design, graphic design, video editing, hardware/software
+              <p style="margin-bottom: 10px;"><em>Detail-oriented and tech-savvy professional with hands-on experience in
+                IT support, programming, web development, CAD design, graphic design, photo/video editing, hardware/software
                 troubleshooting, and networking, delivering efficient solutions from concept to implementation.
               </em></p>
               <ul>
-                <li>Tayabas City, Quezon Province</li>
-                <li>+63 977 749 5601</li>
-                <li>vncldrnprdz@gmail.com</li>
+                <li class="email"></li>
+                <li class="phone"></li>
+                <li class="location"></li>
               </ul>
             </div><!-- Edn Resume Item -->
 
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
               <h4>Bachelor of Science in Industrial Technology <br> Major in Computer Technology</h4>
-              <p><em>Souhtern Luzon State University | Lucban, Quezon Province</em></p>
+              <p><em>Southern Luzon State University | Lucban, Quezon Province</em></p>
               <h5>2021 - 2025</h5>
-              <ul><li>Cum Laude - GPA: 1.4521</li></ul>
+              <ul><li>Cum Laude — GPA 1.4521</li></ul>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item pb-0">
               <h4>High School Diploma</h4>
-              <p><em>The Sisters of Mary School - Adlas, Inc. | Silang,Cavite</em></p>
-              <h5>2015 - 2021</h5>
+              <p><em>The Sisters of Mary School - Adlas, Inc. | Silang, Cavite</em></p>
+              <h5>2015 - 2020</h5>
               <ul>
                 <li>Academic Awardee</li>
-                <li>Technical Excellence in Mechanical Drafting</li>
-                <li>Technical Excellence in AutoCAD 2D & 3D</li>
+                <li>Special Awardee</li>
+                <li>Technical Excellence Awardee in Mechanical Drafting</li>
+                <li>Technical Excellence Awardee in AutoCAD 2D & 3D</li>
               </ul>
              </div><!-- Edn Resume Item -->
+            
+            <h3 class="resume-title">Certifications</h3>
+            <div class="resume-item">
+              <h4>Computer Systems Servicing NC II</h4>
+              <p><em>Aceba Science & Technology Institute Inc. (ASTI) | Tayabas City, Quezon Province</em></p>
+              <h5>July 15, 2024</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Mechatronics Servicing NC II</h4>
+              <p><em>The Sisters of Mary School – Adlas, Inc. | Silang, Cavite</em></p>
+              <h5>March 9, 2019</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Data Science Essentials with Python</h4>
+              <p><em>Cisco Networking Academy</em></p>
+              <h5>September , 2025</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>A Crash Course in Data Science</h4>
+              <p><em>Johns Hopkins University | Coursera</em></p>
+              <h5>December 14, 2024</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Networking Basics</h4>
+              <p><em>Cisco Networking Academy</em></p>
+              <h5>September , 2025</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item pb-0">
+              <h4>Operating Systems Basics</h4>
+              <p><em>Cisco Networking Academy</em></p>
+              <h5>September , 2025</h5>
+            </div><!-- Edn Resume Item -->
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
 
             <h3 class="resume-title">Leadership & Activities</h3>
             <div class="resume-item pb-0">
               <h4>Representative</h4>
               <p><em>Association of Computer Technology Students (ACTS) | Lucban, Quezon Province</em></p>
-              <h5>September 2023 – June 2024</h5>
+              <h5>2023 – 2024</h5>
               <ul>
                 <li>Advocated for academic and technical concerns of Computer Technology students</li>
                 <li>Helped organize seminars, workshops, and competitions on digital innovation </li>
@@ -383,10 +449,7 @@
               </ul>
             </div><!-- Edn Resume Item -->
 
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Certifications & Trainings</h3>
+            <h3 class="resume-title">Seminars, Trainings, & Workshops</h3>
             <div class="resume-item">
               <h4>700 Hours On-the-Job Training (OJT)</h4>
               <p><em>Blueclicker Trading | Lucena City, Quezon Province</em></p>
@@ -413,15 +476,21 @@
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Computer Systems Servicing NC II</h4>
-              <p><em>Aceba Science & Technology Institute Inc. (ASTI) | Tayabas City, Quezon Province</em></p>
-              <h5>July 15, 2024</h5>
+              <h4>Cybersecurity Awareness Seminar</h4>
+              <p><em>Southern Luzon State University x DICT | Lucban, Quezon Province</em></p>
+              <h5>January 9, 2024</h5>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Mechatronics Servicing NC II</h4>
-              <p><em>The Sisters of Mary School – Adlas, Inc. | Silang, Cavite</em></p>
-              <h5>March 9, 2019</h5>
+              <h4>Advanced Excel: Unveiling Tech Insights</h4>
+              <p><em>Southern Luzon State University x DICT | Lucban, Quezon Province</em></p>
+              <h5>January 9, 2024</h5>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Revolutionizing the Future: AI's Impact on Society</h4>
+              <p><em>Southern Luzon State University | Lucban, Quezon Province</em></p>
+              <h5>January 9, 2024</h5>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item pb-0">
@@ -454,36 +523,32 @@
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
 
-            <li data-filter=".filter-personal">Personal Milestones</li>
+            <li data-filter=".filter-learn">Learn</li>
               <!-- ============================
-                PERSONAL MILESTONES
-                - Graduation highlights (HS, College, major recognitions)
-                - Scholarships, awards, or honors
-                - Volunteer experiences / community service
-                - Certifications or licenses (non-work specific)
-                - Memorable achievements (e.g., leadership roles, first conference presentation)
-              ============================ -->
-            <li data-filter=".filter-professional">Professional & Work</li>
-              <!-- ============================
-                PROFESSIONAL & WORK
-                - On-the-Job Training (OJT) experiences
-                - Job positions and responsibilities
-                - Internships or part-time jobs
-                - Professional certifications (related to career/field)
-                - Major work-related projects or contributions
-              ============================ -->
-            <li data-filter=".filter-academic">Academic & Learning</li>
-              <!-- ============================
-                ACADEMIC & LEARNING
                 - Schools attended, courses, degrees
                 - Academic awards and recognitions
                 - Research projects (e.g., Thesis: S.M.A.R.T. Ventilation System)
                 - Seminars, workshops, trainings attended
                 - Skills/knowledge gained through formal education
               ============================ -->
-            <li data-filter=".filter-creative">Creative Pursuits</li>
+            <li data-filter=".filter-work">Work</li>
               <!-- ============================
-                CREATIVE PURSUITS
+                - On-the-Job Training (OJT) experiences
+                - Job positions and responsibilities
+                - Internships or part-time jobs
+                - Professional certifications (related to career/field)
+                - Major work-related projects or contributions
+              ============================ -->
+            <li data-filter=".filter-win">Win</li>
+              <!-- ============================
+                - Graduation highlights (HS, College, major recognitions)
+                - Scholarships, awards, or honors
+                - Volunteer experiences / community service
+                - Certifications or licenses (non-work specific)
+                - Memorable achievements (e.g., leadership roles, first conference presentation)
+              ============================ -->
+            <li data-filter=".filter-life">Life</li>
+              <!-- ============================
                 - Playing musical instruments
                 - Drawing, painting, digital art
                 - Photography & editing
@@ -492,106 +557,126 @@
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-academic filter-professional">
-              <img src="assets/img/portfolio/portfolio-1/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Thesis Journey</h4>
-                <p>From Concept to Prototype.</p>
-                <a href="assets/img/portfolio/portfolio-1/portfolio-1.jpg" title="Thesis Journey" data-gallery="portfolio-gallery-academic" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-1" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio 1 Item - Thesis -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-professional">
-              <img src="assets/img/portfolio/portfolio-2/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>OJT I Experience</h4>
-                <p>First step into the professional environment.</p>
-                <a href="assets/img/portfolio/portfolio-2/portfolio-2.jpg" title="On-the-Job Training I Experience" data-gallery="portfolio-gallery-professional" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio 2 Item - OJT I -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal" >
-              <img src="assets/img/portfolio/portfolio-3/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>CSS NCII Journey</h4>
-                <p>Developing technical expertise in computer systems.</p>
-                <a href="assets/img/portfolio/portfolio-3/portfolio-3.jpg" title="Computer Systems Servicing NCII Journey" data-gallery="portfolio-gallery-personal" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-3" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio 3 Item - CSS NCII -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-creative">
-              <img src="assets/img/portfolio/portfolio-4/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Rondalla Performances</h4>
-                <p>Sharing music and culture through strings.</p>
-                <a href="assets/img/portfolio/portfolio-4/portfolio-4.jpg" title="Rondalla Performances" data-gallery="portfolio-gallery-creative" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-4" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio 4 Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-academic filter-personal">
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-win filter-learn">
               <img src="assets/img/portfolio/portfolio-5/portfolio-5.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Graduation Story</h4>
                 <p>Turning Tassels, Opening Doors.</p>
-                <a href="assets/img/portfolio/portfolio-5/portfolio-5.jpg" title="Graduation Story" data-gallery="portfolio-gallery-academic" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-5" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/portfolio/portfolio-5/portfolio-5.jpg" title="Graduation Story" data-gallery="portfolio-gallery-win" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#graduation" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio 5 Item - Graduation -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-professional">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-work">
               <img src="assets/img/portfolio/portfolio-6/portfolio-6.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>OJT II Experience</h4>
                 <p>Learning workplace skills through hands-on training.</p>
-                <a href="assets/img/portfolio/portfolio-6/portfolio-6.jpg" title="On-the-Job Training II Experience" data-gallery="portfolio-gallery-professional" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-6" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/portfolio/portfolio-6/portfolio-6.jpg" title="On-the-Job Training II Experience" data-gallery="portfolio-gallery-work" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#ojt2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio 6 Item - OJT II -->
-<!--
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-academic">
-              <img src="assets/img/portfolio/portfolio-7/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/portfolio/portfolio-7/portfolio-7.jpg" title="Portfolio 7" data-gallery="portfolio-gallery-academic" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-7" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div> End Portfolio 7 Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-professional">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-work">
               <img src="assets/img/portfolio/portfolio-8/portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Pet Feeder 3D Concept</h4>
                 <p>Creative modeling for practical use.</p>
-                <a href="assets/img/portfolio/portfolio-8/portfolio-8.jpg" title="Pet Feeder 3D Concept" data-gallery="portfolio-gallery-professional" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-8" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/portfolio/portfolio-8/portfolio-8.jpg" title="Pet Feeder 3D Concept" data-gallery="portfolio-gallery-work" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#petfeeder3d" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div><!-- End Portfolio 8 Item - ABP Design -->
-<!--
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-academic">
+            </div><!-- End Portfolio 8 Item - Pet Feeder -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-work filter-learn">
+              <img src="assets/img/portfolio/portfolio-1/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Thesis Journey</h4>
+                <p>From Concept to Prototype.</p>
+                <a href="assets/img/portfolio/portfolio-1/portfolio-1.jpg" title="Thesis Journey" data-gallery="portfolio-gallery-work" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#thesis" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 1 Item - Thesis -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-work">
+              <img src="assets/img/portfolio/portfolio-2/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>OJT I Experience</h4>
+                <p>First step into the professional environment.</p>
+                <a href="assets/img/portfolio/portfolio-2/portfolio-2.jpg" title="On-the-Job Training I Experience" data-gallery="portfolio-gallery-work" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#ojt1" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 2 Item - OJT I -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-win" >
+              <img src="assets/img/portfolio/portfolio-3/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>CSS NCII Journey</h4>
+                <p>Developing technical expertise in computer systems.</p>
+                <a href="assets/img/portfolio/portfolio-3/portfolio-3.jpg" title="Computer Systems Servicing NCII Journey" data-gallery="portfolio-gallery-win" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#cssnc2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 3 Item - CSS NCII -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-work">
+              <img src="assets/img/portfolio/portfolio-12/portfolio-12.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Ilagan Catechists Media Project</h4>
+                <p>Promoting education and faith through visuals.</p>
+                <a href="assets/img/portfolio/portfolio-12/portfolio-12.jpg" title="Ilagan Catechists Media Project" data-gallery="portfolio-gallery-work" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#ilaganproj" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 12 Item - Ilagan Editor -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-learn">
+              <img src="assets/img/portfolio/portfolio-7/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>TechVolution Unleashed</h4>
+                <p>A Majestic Journey into Information Trends and Specialized Technology.</p>
+                <a href="assets/img/portfolio/portfolio-7/portfolio-7.jpg" title="TechVolution Unleashed" data-gallery="portfolio-gallery-learn" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#techvolution" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 7 Item - TechVolution -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-life">
+              <img src="assets/img/portfolio/portfolio-11/portfolio-11.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>SLSU College Rondalla</h4>
+                <p>Spreading harmony across communities.</p>
+                <a href="assets/img/portfolio/portfolio-11/portfolio-11.jpg" title="SLSU College Rondalla" data-gallery="portfolio-gallery-life" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#slsurondalla" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 11 Item - SLSU Rondalla -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-win filter-learn">
               <img src="assets/img/portfolio/portfolio-9/portfolio-9.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/portfolio/portfolio-9/portfolio-9.jpg" title="Portfolio 9" data-gallery="portfolio-gallery-academic" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-9" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>ACTS Journey and Duties</h4>
+                <p>Supporting academic initiatives and advocacy.</p>
+                <a href="assets/img/portfolio/portfolio-9/portfolio-9.jpg" title="Association of Computer Technology Student (ACTS) Journey and Duties" data-gallery="portfolio-gallery-win" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#acts" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div> End Portfolio 9 Item -->
-<!--
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
+            </div><!-- End Portfolio 9 Item - ACTS -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-win filter-learn">
               <img src="assets/img/portfolio/portfolio-10/portfolio-10.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 10</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/portfolio/portfolio-10/portfolio-10.jpg" title="Portfolio 10" data-gallery="portfolio-gallery-personal" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html#portfolio-10" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h4>High School Life</h4>
+                <p>Shaped by discipline, values, and lifelong friendships.</p>
+                <a href="assets/img/portfolio/portfolio-10/portfolio-10.jpg" title="High School Life" data-gallery="portfolio-gallery-win" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#hslife" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
-            </div> End Portfolio 10 Item -->
+            </div><!-- End Portfolio 10 Item - HS Life -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-life">
+              <img src="assets/img/portfolio/portfolio-4/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Aloysian SMSA Rondalla</h4>
+                <p>Sharing music and culture through strings.</p>
+                <a href="assets/img/portfolio/portfolio-4/portfolio-4.jpg" title="Aloysian SMSA Rondalla" data-gallery="portfolio-gallery-life" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html#smsarondalla" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio 4 Item - SMSA Rondalla -->
 
           </div><!-- End Portfolio Container -->
 
@@ -607,7 +692,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>I offer a range of technical and creative services, from programming and CAD design to multimedia production, laboratory practices, and IT solutions.</p>
+        <p>A range of technical and creative services, from programming and CAD design to multimedia production, laboratory practices, and IT solutions.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -761,11 +846,15 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                          <span>Very reliable and creative, consistently bringing fresh ideas and practical solutions to every task. Always delivers projects on time with high-quality results that reflect both professionalism and attention to detail.</span>
+                        <span>
+                        A highly adaptable professional who merges creativity, technical skill, and hands-on work. 
+                        From programming and design to editing and hardware, he delivers practical and impactful solutions, 
+                        built with care and adding unique value to every project.
+                        </span>
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Zedrick Laurence Añoso</h3>
-                      <h4>Client</h4>
+                      <h4>Colleague</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
@@ -785,11 +874,46 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                          <span>Creative, skilled, and dependable, always bringing original ideas and strong technical execution to every project. Delivers designs and edits that consistently exceed expectations, showing both reliability and a high level of craftsmanship.</span>
+                        <span>
+                          Ang gandaaa!!! The quality is outstanding, the details are 
+                           clear, and the result truly exceeded our expectations. 
+                          We are very grateful for the effort and dedication poured into this work, 
+                          God bless you for sharing your talent with us. 
+                        </span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>Angeline Panaligan</h3>
+                      <h4>Client</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-6.jpg" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                          <span>Creative, skilled, and dependable — a true jack of all trades who brings
+                            original ideas and strong technical execution to every project. Delivers work
+                            that blends innovation, consistency, and craftsmanship in every detail.</span>
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Jericho Constantino</h3>
-                      <h4>Client</h4>
+                      <h4>Colleague</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
@@ -809,11 +933,66 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                          <span>Great attention to detail, especially in graphic design and CAD work, where precision and creativity are both clearly evident. The results always look polished and professional, making the work highly reliable and strongly recommended.</span>
+                        <span>
+                          The 3D model looked so realistic that it felt like we were looking at the actual prototype itself, only more refined 
+                          and beautiful. The details were sharp, clear, and super HD, making it easy for our panel to visualize the concept with confidence.
+                        </span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>Andrea Bulanon</h3>
+                      <h4>Client</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-7.jpg" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                          <span>Always finishes tasks within the specified time and maintains a cool, positive mindset.
+                            Consistently going beyond expectations, his work leaves you with nothing else to do but
+                            admire his dedication and results.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>Hans Neil Perez</h3>
+                      <h4>Colleague</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                          <span>Impressive programming skills in web platforms, applications, and IoT.
+                            He writes clean, efficient code and always finds creative solutions. Working with him has
+                            been a smooth, productive, and inspiring experience.</span>
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Rommel Brandia</h3>
-                      <h4>Client</h4>
+                      <h4>Colleague</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
@@ -833,18 +1012,22 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                          <span>Impressive work in both application development and media editing, showing a balance of technical expertise and creative skill. Very professional to work with, ensuring smooth collaboration and consistently high-quality outcomes.</span>
+                        <span>
+                          The device is very practical for computer laboratories requiring monitoring. 
+                          Its real-time reporting ensures protection and comfort, I highly recommend it for institutions that value safety, efficiency, and innovation.
+                        </span>
+
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Hans Neil Perez</h3>
-                      <h4>Colleague</h4>
+                      <h3>Yel Talabong</h3>
+                      <h4>Computer Technology Student</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                    <img src="assets/img/testimonials/testimonials-5.jpg" class="img-fluid testimonial-img" alt="">
                   </div>
                 </div>
               </div>
@@ -884,11 +1067,12 @@
         <div class="row gy-4">
 
           <div class="col-lg-4">
+
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Address</h3>
-                <p>Tayabas City 4327, Quezon Province</p>
+                <h3>Email Address</h3>
+                <p class="email"></p>
               </div>
             </div><!-- End Info Item -->
 
@@ -896,15 +1080,15 @@
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Phone Number</h3>
-                <p>+63 977 749 5601</p>
+                <p class="phone"></p>
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3>Email Address</h3>
-                <p>vncldrnprdz@gmail.com</p>
+                <h3>Address</h3>
+                <p class="location" style="margin-bottom: 40px;"></p>
               </div>
             </div><!-- End Info Item -->
 
@@ -968,11 +1152,11 @@
               loading.style.display = "none";
 
               if (response.ok) {
-                // ✅ Success
+                // Success
                 sentMessage.style.display = "block";
                 form.reset();
               } else {
-                // ❌ Failed
+                // Failed
                 errorMessage.textContent = "Oops! Something went wrong.";
                 errorMessage.style.display = "block";
               }
@@ -995,7 +1179,7 @@
   <footer id="footer" class="footer position-relative light-background">
     <div class="container">
       <h3 class="sitename">Vince Aldrin Pardito</h3>
-      <p>Fueled by chocolates and drinks, powered by curiosity, and occasionally distracted by memes.
+      <p>Fueled by chocolates, chips and sodas, powered by curiosity, and occasionally distracted by memes.
       <br>This site was built with love, late nights, and way too many browser tabs — it’s not done yet.</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.facebook.com/vncldrnprdz"><i class="bi bi-facebook"></i></a>
@@ -1041,6 +1225,29 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+  </script>
+
+  <!-- Fill all information spans-->
+  <script>
+    // Get the master values
+    const email = document.getElementById("email-data").textContent.trim();
+    const phone = document.getElementById("phone-data").textContent.trim();
+    const locationText = document.getElementById("location-data").textContent.trim();
+
+    // Fill all .email spans
+    document.querySelectorAll(".email").forEach(el => {
+      el.textContent = email;
+      el.href = "mailto:" + email; // optional, if inside <a>
+    });
+
+    // Fill all .phone spans
+    document.querySelectorAll(".phone").forEach(el => {
+      el.textContent = phone;
+      el.href = "tel:" + phone.replace(/\s+/g, ""); // optional, if inside <a>
+    });
+
+    // Fill all .location spans
+    document.querySelectorAll(".location").forEach(el => el.textContent = locationText);
   </script>
 
   <!-- Scroll Top -->
