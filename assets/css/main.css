@@ -57,6 +57,28 @@
   scroll-behavior: smooth;
 }
 
+/* Apply site-wide */
+html,
+body {
+  overflow-x: hidden;
+  /* disable horizontal scroll */
+}
+
+/* Optional: hide vertical scrollbars globally while keeping scrolling */
+body::-webkit-scrollbar {
+  width: 0;
+  /* vertical scrollbar width */
+  height: 0;
+  /* horizontal scrollbar height */
+}
+
+body {
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
@@ -778,6 +800,7 @@ details[open] summary::after {
   font-weight: 600;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-top: 2px;
   margin-bottom: 10px;
 }
 
